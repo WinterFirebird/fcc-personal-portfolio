@@ -1,0 +1,361 @@
+@font-face {
+    font-family:"Poppins";
+    src: url("fonts/Poppins/Poppins-Bold.ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family:"Poppins";
+    src: url("fonts/Poppins/Poppins-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family:"Poppins";
+    src: url("fonts/Poppins/Poppins-Italic.ttf");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family:"Poppins";
+    src: url("fonts/Poppins/Poppins-ExtraLight.ttf");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family:"Poppins";
+    src: url("fonts/Poppins/Poppins-ExtraLightItalic.ttf");
+    font-weight: 200;
+    font-style: italic;
+}
+
+/**/
+
+@font-face {
+    font-family:"Raleway";
+    src: url("fonts/Raleway/Raleway-Bold.ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family:"Raleway";
+    src: url("fonts/Raleway/Raleway-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family:"Raleway";
+    src: url("fonts/Raleway/Raleway-Italic.ttf");
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+
+
+:root {
+    --navbar-bg:#be3144;
+    --hero-bg:url("background/hero.jpg");
+    --projects-bg:#45567d;
+    --contacts-footer-bg:#303841;
+    --default-text-color:#f0f0f0;
+    --default-font-family:"Poppins", sans-serif;
+    --emph-font-family:"Raleway", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding:0;
+    height: 100vh;
+    font-family: var(--default-font-family);
+    color: var(--default-text-color);
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+    display: inline-block;
+}
+
+h1, h2 {
+    font-family: var(--emph-font-family);
+}
+
+#navbar {
+    background:var(--navbar-bg);
+    /**/
+    font-size: 1.5rem;
+    padding: 0 20px;
+    /**/
+    position: fixed;
+    z-index: 999;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items:center;
+}
+
+#navbar * {
+    margin: 0;
+    padding: 0;
+}
+
+#navbar ul {
+    display: flex;
+    align-items: stretch;
+    flex-wrap:wrap;
+    min-height: 70px;
+    /* max-width: 80%; */
+}
+
+#navbar > ul > li {
+    display: flex;
+    align-items: center;
+    padding:14px 18px;
+}
+
+#navbar > ul > li:hover {
+    background:var(--projects-bg);
+}
+
+/**/
+
+#welcome-section::before {
+    content:"";
+    position: absolute;
+    z-index:0;
+    width: 100%;
+    height: 100vh; /*100% causes problems on mobile browsers*/
+    background:var(--contacts-footer-bg);
+    opacity: 0.8;
+}
+
+#welcome-section {
+    background:var(--hero-bg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    background-attachment: fixed;
+    /**/
+    height: 100vh;
+    padding-top:1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    /**/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#welcome-section #hero {
+    z-index:1;
+}
+
+#welcome-section #hero h1 {
+    margin:0;
+    font-size: 4rem;
+    color:white;
+}
+
+#welcome-section #hero p {
+    font-size:1.5rem;
+    font-style:italic;
+    font-weight: 200;
+    color:var(--navbar-bg);
+}
+
+/**/
+
+#projects {
+    background:var(--projects-bg);
+    text-align:center;
+    padding:60px 10px;
+}
+
+#projects a {
+    font-size: 1.3rem;
+}
+
+#projects > #projects-header {
+    width: fit-content;
+    margin:50px auto;
+}
+
+#projects > #projects-header > h2 {
+    font-size: 2.8rem;
+    margin: 0;
+    padding:8px 12px;
+    border-bottom: 3px solid var(--default-text-color);
+}
+
+#projects > #projects-grid {
+    margin-left:auto;
+    margin-right:auto;
+    /**/
+    width: 100%;
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows:auto;
+    grid-gap:40px;
+}
+
+#projects > #projects-grid > a.project-tile {
+    position: relative;
+    /* min-height: 400px; */
+    /* max-height: 500px; */
+}
+
+#projects > #projects-grid > a.project-tile:hover p > span {
+    color:var(--navbar-bg);
+}
+
+#projects > #projects-grid > a.project-tile > img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+#projects > #projects-grid > a.project-tile > p {
+    background:var(--contacts-footer-bg);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    /**/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+} 
+
+#projects > #projects-grid > a.project-tile > p span {
+    color: var(--contacts-footer-bg);
+    padding:4px;
+    font-size:1.2rem;
+    vertical-align: text-top;
+    transition:color 0.5s;
+}
+
+#projects > #show-all-button {
+    background:var(--contacts-footer-bg);
+    transition:background 0.5s;
+    /**/
+    border-radius:2px;
+    padding: 10px 20px;
+    margin: 40px;
+    font-size: 1.5rem;
+    
+}
+
+#projects > #show-all-button:hover {
+    background:var(--navbar-bg);
+}
+
+#projects > #show-all-button span {
+    display: inline-block;
+    margin-left:2px;
+    transition:transform 0.3s;
+}
+
+#projects > #show-all-button:hover span {
+    transform:translateX(6px);
+}
+
+/**/
+
+#contacts {
+    background: var(--contacts-footer-bg);
+    /**/
+    padding:1px;
+    text-align: center;
+    /**/
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#contacts header h2 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+#contacts header p {
+    font-size: 1.2rem;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+#contacts #contacts-list {
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+    padding: 0;
+    max-width: 1000px;
+    text-align: center;
+}
+
+#contacts #contacts-list li {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin: 10px 22px;
+    transition:transform 0.3s;
+}
+
+#contacts #contacts-list li:hover {
+    transform:translateY(10px);
+}
+
+#contacts #contacts-list li > a > i {
+    margin-right:6px;
+}
+
+/**/
+
+#footer {
+    background:var(--contacts-footer-bg);
+    border-top:4px solid var(--navbar-bg);
+    /**/
+    padding:25px 10px;
+    font-size: 1rem;
+    /**/
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap:wrap;
+}
+
+#footer > * {
+    margin:4px;
+}
+
+
+/**/
+
+/* mobile */
+
+@media screen and (max-width:480px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/* iPhone 5 and SE */
+@media screen and (max-width:320px) {
+    html {
+        font-size: 10px;
+    }
+}
